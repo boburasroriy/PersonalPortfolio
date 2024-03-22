@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\LoginController;
 use \Illuminate\Support\Facades\Auth;
+use \App\Http\Controllers\PostController;
 
 
 Route::post('/registration', [RegistrationController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
 
 
+Route::resource('posts',  PostController::class,);
