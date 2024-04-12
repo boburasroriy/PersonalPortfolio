@@ -45,7 +45,6 @@ class PostController extends Controller
                 'text' => 'required|string|max:255',
                 'photo' => 'mimes:jpeg,png,jpg,gif|max:2048',
             ]);
-
             if ($request->has('title')) {
                 $post->title = $request->title;
             }
