@@ -61,7 +61,6 @@ class ProjectTest extends TestCase
         $response->assertStatus(200);
     }
 
-
     function test_update_existing_ProjectPost()
     {
         Storage::fake('public');
@@ -73,10 +72,9 @@ class ProjectTest extends TestCase
             'portfolio_text' => 'Text before update',
         ]);
 
+        $updatedFile = UploadedFile::fake()->create( 'NewOne.png');
 
 
-
-        $updatedFile = UploadedFile::fake()->image('new_Project2.png');
         $response = $this->put('/api/projectPosts/' . $projectTwo->id, [
             'portfolio_photo' => $updatedFile,
             'portfolio_title' => 'Updated title',
@@ -87,12 +85,13 @@ class ProjectTest extends TestCase
             "id" => $projectTwo->id,
             'portfolio_title' => 'Updated title',
             'portfolio_text' => 'Updated text',
-            'portfolio_photo' => 'PortfolioPhotos/' . $updatedFile->getClientOriginalName(),
+            'portfolio_photo' => 'PortfolioPhotos/'. $updatedFile->getClientOriginalName(),
 
         ]);
-        Storage::disk('public')->assertExists('PortfolioPhotos/' . $updatedFile->getClientOriginalName());
 
+        Storage::disk('public')->assertExists('PortfolioPhotos/' . $updatedFile->getClientOriginalName());
     }
+
     public function test_delete_existing_post():void{
         $file = UploadedFile::fake()->image('fileshouldbedeleted2.png');
         $post = Project::create([

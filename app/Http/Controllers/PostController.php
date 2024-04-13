@@ -37,6 +37,34 @@ class PostController extends Controller
     {
         return response()->json(['post' => $post]);
     }
+//    public function update(Request $request, Post $post)
+//    {
+//        try {
+//            $validation = $request->validate([
+//                'title' => 'required|string|max:255',
+//                'text' => 'required|string|max:255',
+//                'photo' => 'mimes:jpeg,png,jpg,gif|max:2048',
+//            ]);
+//            if ($request->has('title')) {
+//                $post->title = $request->title;
+//            }
+//            if ($request->has('text')) {
+//                $post->text = $request->text;
+//            }
+//            if ($request->hasFile('photo')) {
+//                Storage::delete($post->photo);
+//                $originalName = $request->file('photo')->getClientOriginalName();
+//                $photoPath = $request->file('photo')->storeAs('PostPhotos'. $originalName);
+//                $post->photo = $photoPath;
+//            }
+//            $post->save();
+//            return response()->json(['message' => 'Post updated successfully', 'post' => $post], 200);
+//        } catch (ValidationException $exception) {
+//            return response()->json(['message' => 'Errors', 'errors' => $exception->errors()], 422);
+//        } catch (\Exception $exception) {
+//            return response()->json(['message' => 'Error updating post', 'error' => $exception->getMessage()], 500);
+//        }
+//    }
     public function update(Request $request, Post $post)
     {
         try {

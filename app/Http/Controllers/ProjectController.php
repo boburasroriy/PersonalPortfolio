@@ -55,7 +55,7 @@ class ProjectController extends Controller
         if ($request->hasFile('portfolio_photo')){
             Storage::delete($projectPost->portfolio_photo);
             $originalName = $request->file('portfolio_photo')->getClientOriginalName();
-            $photoPath = $request->file('portfolio_photo')->storeAs('PortfolioPhotos' . $originalName);
+            $photoPath = $request->file('portfolio_photo')->storeAs('PortfolioPhotos' , $originalName);
             $projectPost->portfolio_photo = $photoPath;
         }
         $projectPost->save();
