@@ -40,7 +40,8 @@ class ProjectController extends Controller
     }
     public function update(Request $request, Project $projectPost)
     {
-       $request->validate([
+        try {
+            $validation = $request->validate([
            'portfolio_photo' => 'mimes:jpeg,png,jpg,gif|max:2048',
            'portfolio_title' => 'string|max:255',
            'portfolio_text' => 'string|max:255',
@@ -55,10 +56,15 @@ class ProjectController extends Controller
             Storage::delete($projectPost->portfolio_photo);
             $originalName = $request->file('portfolio_photo')->getClientOriginalName();
             $photoPath = $request->file('portfolio_photo')->storeAs('PortfolioPhotos' . $originalName);
+            $projectPost->portfolio_photo = $photoPath;
         }
         $projectPost->save();
         return response()->json(['message' => 'ProjectPost updated successfully', 'ProjectPost' => $projectPost], 200);
-
+        } catch (ValidationException $exception) {
+            return response()->json(['message' => 'Errors', 'errors' => $exception->errors()], 422);
+        } catch (\Exception $exception) {
+            return response()->json(['message' => 'Error updating post', 'error' => $exception->getMessage()], 500);
+        }
     }
     public function destroy(Project $projectPost)
     {

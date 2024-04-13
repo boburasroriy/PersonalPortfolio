@@ -68,10 +68,14 @@ class ProjectTest extends TestCase
         $file = UploadedFile::fake()->image('Project2.png');
         $projectTwo = Project::create([
             'id' => 1,
-            'portfolio_photo' => $file, // Pass the file object itself
+            'portfolio_photo' => $file,
             'portfolio_title' => 'Title before update',
             'portfolio_text' => 'Text before update',
         ]);
+
+
+
+
         $updatedFile = UploadedFile::fake()->image('new_Project2.png');
         $response = $this->put('/api/projectPosts/' . $projectTwo->id, [
             'portfolio_photo' => $updatedFile,
@@ -80,9 +84,11 @@ class ProjectTest extends TestCase
         ]);
         $response->assertStatus(200);
         $this->assertDatabaseHas('projects', [
-            'portfolio_photo' => 'PortfolioPhotos/' . $updatedFile->getClientOriginalName(), // Ensure the correct filename format
+            "id" => $projectTwo->id,
             'portfolio_title' => 'Updated title',
             'portfolio_text' => 'Updated text',
+            'portfolio_photo' => 'PortfolioPhotos/' . $updatedFile->getClientOriginalName(),
+
         ]);
         Storage::disk('public')->assertExists('PortfolioPhotos/' . $updatedFile->getClientOriginalName());
 

@@ -46,8 +46,8 @@ class PostTest extends TestCase
         $post =  Post::create([
             'id' => 1,
             'photo' => $file,
-            'title' => 'ewr',
-            'text' => 'sdaf',
+            'title' => 'notUpdated',
+            'text' => 'notUpdated',
         ]);
         $response = $this->get('/api/posts/' . $post->id);
         $response->assertStatus(200);
@@ -60,9 +60,12 @@ class PostTest extends TestCase
         $post = Post::create([
             'id' => 1,
             'photo' => $file,
-            'title' => 'Title before update',
-            'text' => 'Text before update',
+            'title' => 'Title fd update',
+            'text' => 'Text df update',
         ]);
+
+
+
   $updatedFile = UploadedFile::fake()->image('new_avatar.png');
   $response = $this->put('/api/posts/' . $post->id, [
       'photo' => $updatedFile,
