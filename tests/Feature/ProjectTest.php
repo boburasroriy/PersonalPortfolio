@@ -12,19 +12,11 @@ use Tests\TestCase;
 
 class ProjectTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
     public function test_index_all_created_projectPosts(): void
     {
         $response = $this->get('api/projectPosts');
         $response->assertStatus(200);
     }
-
-
-
-
-
     function test_create_new_projectPosts()
     {
         Storage::fake('public');
@@ -42,11 +34,6 @@ class ProjectTest extends TestCase
         ]);
         Storage::disk('public')->assertExists('PortfolioPhotos/' . $Project_file->getClientOriginalName());
     }
-
-
-
-
-
     function test_showing_existing_projectPost()
     {
         Storage::fake('public');
@@ -60,7 +47,6 @@ class ProjectTest extends TestCase
         $response = $this->get('api/projectPosts/' . $ProjectPost->id);
         $response->assertStatus(200);
     }
-
     function test_update_existing_ProjectPost()
     {
         Storage::fake('public');
@@ -91,7 +77,6 @@ class ProjectTest extends TestCase
 
         Storage::disk('public')->assertExists('PortfolioPhotos/' . $updatedFile->getClientOriginalName());
     }
-
     public function test_delete_existing_post():void{
         $file = UploadedFile::fake()->image('fileshouldbedeleted2.png');
         $post = Project::create([

@@ -27,6 +27,8 @@ class RegistrationController extends Controller
              'password' => Hash::make($request->password)
          ]);
         $user->save();
-          return new RegistrationResource($user) ;
+        $userD =  new RegistrationResource($user) ;
+
     }
+
 }

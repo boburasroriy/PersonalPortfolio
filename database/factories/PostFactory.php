@@ -13,7 +13,7 @@ class PostFactory extends Factory
     {
         return [
             'photo' => $this->faker->image(),
-        'title' => $this->faker->sentence(),
+            'title' => $this->faker->sentence(),
             'text' => $this->faker->paragraph(),
         ];
     }

@@ -11,14 +11,11 @@ use Tests\TestCase;
 
 class PostTest extends TestCase
 {
-
     public function test_index_all_created_posts(): void
     {
         $response = $this->get('api/posts');
         $response->assertStatus(200);
     }
-
-
 
     public function test_create_new_post() :void
     {
@@ -38,8 +35,6 @@ class PostTest extends TestCase
         Storage::disk('public')->assertExists('PostPhotos/' . $file->getClientOriginalName());
     }
 
-
-
     public function test_show_existing_post():void{
         Storage::fake('public');
         $file = UploadedFile::fake()->image('avatar.png');
@@ -52,7 +47,6 @@ class PostTest extends TestCase
         $response = $this->get('/api/posts/' . $post->id);
         $response->assertStatus(200);
     }
-
 
     public function test_update_existing_post():void{
         Storage::fake('public');
@@ -82,9 +76,6 @@ class PostTest extends TestCase
         Storage::disk('public')->assertExists('PostPhotos/' . $updatedFile->getClientOriginalName());
     }
 
-
-
-
     public function test_delete_existing_post():void{
         $file = UploadedFile::fake()->image('fileshouldbedeleted.png');
         $post = Post::create([
@@ -98,5 +89,4 @@ class PostTest extends TestCase
         $this->assertDatabaseMissing('posts', ['id' => $post->id]);
 
     }
-
 }
