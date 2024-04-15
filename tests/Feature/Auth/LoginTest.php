@@ -28,4 +28,6 @@ class LoginTest extends TestCase
         $response->assertJsonStructure(['token']);
         $this->assertAuthenticated();
     }
+
+
 }

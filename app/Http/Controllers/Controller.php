@@ -10,5 +10,9 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-
+    function dashboard()
+    {
+        $dashboardName = 'this is admin panel';
+        return dd($dashboardName);
+}
 }

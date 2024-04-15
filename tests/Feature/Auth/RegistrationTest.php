@@ -10,12 +10,10 @@ use Tests\TestCase;
 
 class RegistrationTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+
     public function test_new_user_can_register(): void
     {
-            $fakeEmail = fake()->email();
+        $fakeEmail = fake()->email();
         $newUser = [
             'first_name' => 'John',
             'last_name' => ' Doe',

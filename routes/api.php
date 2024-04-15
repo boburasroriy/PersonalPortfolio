@@ -12,8 +12,11 @@ use \App\Http\Controllers\ProjectController;
 
 Route::post('/registration', [RegistrationController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
+Route::get('/dashboard', [\App\Http\Controllers\Controller::class, 'dashboard'])->middleware('admin');
 
+Route::apiResources([
+    'posts' => PostController::class,
+    'projectPosts' => ProjectController::class
+]);
 
-Route::resource('posts',  PostController::class,);
-Route::resource('projectPosts',  ProjectController::class,);
 
