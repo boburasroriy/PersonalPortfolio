@@ -20,7 +20,7 @@ class RegistrationTest extends TestCase
             'email' => $fakeEmail,
             'password' => 'password123',
         ];
-        $response = $this->post('/api/registration', $newUser);
+        $response = $this->post('/registration', $newUser);
         $response->assertStatus(200);
         $this->assertDatabaseHas('users', [
             'email' => $fakeEmail

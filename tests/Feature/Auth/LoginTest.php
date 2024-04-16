@@ -23,7 +23,7 @@ class LoginTest extends TestCase
             'email' => $fakeEmail,
             'password' => 'password123',
         ];
-        $response = $this->postJson('/api/login', $loginData);
+        $response = $this->postJson('/login', $loginData);
         $response->assertStatus(200);
         $response->assertJsonStructure(['token']);
         $this->assertAuthenticated();

@@ -13,7 +13,7 @@ class PostTest extends TestCase
 {
     public function test_index_all_created_posts(): void
     {
-        $response = $this->get('api/posts');
+        $response = $this->get('/posts');
         $response->assertStatus(200);
     }
 
@@ -21,7 +21,7 @@ class PostTest extends TestCase
     {
         Storage::fake('public');
         $file = UploadedFile::fake()->image('avatar.png');
-        $response = $this->post('api/posts', [
+        $response = $this->post('/posts', [
             'photo' => $file,
             'title' => 'test title',
             'text' => 'test text',
@@ -44,7 +44,7 @@ class PostTest extends TestCase
             'title' => 'notUpdated',
             'text' => 'notUpdated',
         ]);
-        $response = $this->get('/api/posts/' . $post->id);
+        $response = $this->get('/posts/' . $post->id);
         $response->assertStatus(200);
     }
 
@@ -61,7 +61,7 @@ class PostTest extends TestCase
 
 
   $updatedFile = UploadedFile::fake()->image('new_avatar.png');
-  $response = $this->put('/api/posts/' . $post->id, [
+  $response = $this->put('/posts/' . $post->id, [
       'photo' => $updatedFile,
       'title' => 'Updated title',
       'text' => 'Updated text',
@@ -84,7 +84,7 @@ class PostTest extends TestCase
             'title' => 'title_deleted',
             'text' => 'text_deleted',
         ]);
-        $response = $this->delete('/api/posts/' . $post->id);
+        $response = $this->delete('/posts/' . $post->id);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('posts', ['id' => $post->id]);
 

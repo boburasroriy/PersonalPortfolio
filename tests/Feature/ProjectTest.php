@@ -14,14 +14,14 @@ class ProjectTest extends TestCase
 {
     public function test_index_all_created_projectPosts(): void
     {
-        $response = $this->get('api/projectPosts');
+        $response = $this->get('/projectPosts');
         $response->assertStatus(200);
     }
     function test_create_new_projectPosts()
     {
         Storage::fake('public');
         $Project_file = UploadedFile::fake()->image('projectOne.png');
-        $response = $this->post('api/projectPosts', [
+        $response = $this->post('/projectPosts', [
             'portfolio_photo' => $Project_file,
             'portfolio_title' => 'this is title',
             'portfolio_text' => 'this is text',
@@ -44,7 +44,7 @@ class ProjectTest extends TestCase
             'portfolio_title' => 'lorem',
             'portfolio_text' => 'lorem',
         ]);
-        $response = $this->get('api/projectPosts/' . $ProjectPost->id);
+        $response = $this->get('/projectPosts/' . $ProjectPost->id);
         $response->assertStatus(200);
     }
     function test_update_existing_ProjectPost()
@@ -61,7 +61,7 @@ class ProjectTest extends TestCase
         $updatedFile = UploadedFile::fake()->create( 'NewOne.png');
 
 
-        $response = $this->put('/api/projectPosts/' . $projectTwo->id, [
+        $response = $this->put('/projectPosts/' . $projectTwo->id, [
             'portfolio_photo' => $updatedFile,
             'portfolio_title' => 'Updated title',
             'portfolio_text' => 'Updated text',
@@ -85,7 +85,7 @@ class ProjectTest extends TestCase
             'portfolio_title' => 'title_deleted',
             'portfolio_text' => 'text_deleted',
         ]);
-        $response = $this->delete('/api/projectPosts/' . $post->id);
+        $response = $this->delete('/projectPosts/' . $post->id);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('projects', ['id' => $post->id]);
     }
