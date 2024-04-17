@@ -26,7 +26,8 @@ class ProjectTest extends TestCase
             'portfolio_title' => 'this is title',
             'portfolio_text' => 'this is text',
         ]);
-        $response->assertStatus(201);
+//        $response->assertStatus(201);
+        $response->assertStatus(302);
         $this->assertDatabaseHas('projects', [
             'portfolio_title' => 'this is title',
             'portfolio_text' => 'this is text',
@@ -66,7 +67,9 @@ class ProjectTest extends TestCase
             'portfolio_title' => 'Updated title',
             'portfolio_text' => 'Updated text',
         ]);
-        $response->assertStatus(200);
+//        $response->assertStatus(200);
+        $response->assertStatus(302);
+
         $this->assertDatabaseHas('projects', [
             "id" => $projectTwo->id,
             'portfolio_title' => 'Updated title',

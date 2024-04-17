@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -12,16 +13,22 @@ class Controller extends BaseController
 
     function home()
     {
-        return view('welcome');
+
+        return view('home/home');
     }
 
+    function profile($id)
+    {
+        $user = User::findOrFail($id);
+        return view('home/profile', ['user' => $user]);
+    }
     function login()
     {
-        return view('');
+        return view('AuthView/login');
     }
     function registration()
     {
-        return view('');
+        return view('AuthView/registration');
     }
 
     function dashboard()

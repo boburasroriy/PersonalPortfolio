@@ -11,8 +11,12 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projectPost = Project::all();
-        return response()->json(['portfolio_posts' => $projectPost]);
+        $portfolio_posts = Project::all();
+        return view('Projects.index', compact('portfolio_posts'));
+    }
+    public function create()
+    {
+        return view('Projects.create');
     }
     public function store(Request $request)
     {
@@ -29,14 +33,18 @@ class ProjectController extends Controller
                 'portfolio_title' => $request->portfolio_title,
                 'portfolio_text' => $request->portfolio_text,
             ]);
-            return response()->json(['message' => 'Your post was created'], 201);
+            return redirect()->back()->with(['message' => 'ProjectPost created successfully']);
         } catch (ValidationException $exception) {
             return response()->json(['message' => 'Errors', 'errors' => $exception->errors()], 422);
         }
 
     }
     public function show(Request $request, Project $projectPost){
-        return  response()->json(['portfolio_posts' => $projectPost]);
+        return view('Projects.show', compact('projectPost'));
+    }
+    function edit(Project $projectPost)
+    {
+        return view('Projects.edit', compact('projectPost'));
     }
     public function update(Request $request, Project $projectPost)
     {
@@ -59,7 +67,8 @@ class ProjectController extends Controller
             $projectPost->portfolio_photo = $photoPath;
         }
         $projectPost->save();
-        return response()->json(['message' => 'ProjectPost updated successfully', 'ProjectPost' => $projectPost], 200);
+            return redirect()->back()->with(['message' => 'ProjectPost updated successfully']);
+
         } catch (ValidationException $exception) {
             return response()->json(['message' => 'Errors', 'errors' => $exception->errors()], 422);
         } catch (\Exception $exception) {

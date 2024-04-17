@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class RegistrationController extends Controller
@@ -28,6 +29,7 @@ class RegistrationController extends Controller
          ]);
         $user->save();
         $userD =  new RegistrationResource($user) ;
+        return redirect()->back();
 
     }
 

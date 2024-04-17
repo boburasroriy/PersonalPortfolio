@@ -21,7 +21,7 @@ class RegistrationTest extends TestCase
             'password' => 'password123',
         ];
         $response = $this->post('/registration', $newUser);
-        $response->assertStatus(200);
+        $response->assertStatus(302);
         $this->assertDatabaseHas('users', [
             'email' => $fakeEmail
         ]);

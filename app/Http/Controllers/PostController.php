@@ -11,7 +11,11 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return response()->json(['posts' => $posts]);
+        return view('Posts.index', compact('posts'));
+    }
+    public function create()
+    {
+        return view('Posts.create');
     }
     public function store(Request $request)
     {
@@ -28,43 +32,19 @@ class PostController extends Controller
                 'title' => $request->title,
                 'text' => $request->text,
             ]);
-            return response()->json(['message' => 'Your post was created'], 201);
+            return redirect()->back()->with(['message' => 'Post created successfully']);
         } catch (ValidationException $exception) {
             return response()->json(['message' => 'Errors', 'errors' => $exception->errors()], 422);
         }
     }
     public function show(Post $post)
     {
-        return response()->json(['post' => $post]);
+        return view('Posts.show', compact('post'));
     }
-//    public function update(Request $request, Post $post)
-//    {
-//        try {
-//            $validation = $request->validate([
-//                'title' => 'required|string|max:255',
-//                'text' => 'required|string|max:255',
-//                'photo' => 'mimes:jpeg,png,jpg,gif|max:2048',
-//            ]);
-//            if ($request->has('title')) {
-//                $post->title = $request->title;
-//            }
-//            if ($request->has('text')) {
-//                $post->text = $request->text;
-//            }
-//            if ($request->hasFile('photo')) {
-//                Storage::delete($post->photo);
-//                $originalName = $request->file('photo')->getClientOriginalName();
-//                $photoPath = $request->file('photo')->storeAs('PostPhotos'. $originalName);
-//                $post->photo = $photoPath;
-//            }
-//            $post->save();
-//            return response()->json(['message' => 'Post updated successfully', 'post' => $post], 200);
-//        } catch (ValidationException $exception) {
-//            return response()->json(['message' => 'Errors', 'errors' => $exception->errors()], 422);
-//        } catch (\Exception $exception) {
-//            return response()->json(['message' => 'Error updating post', 'error' => $exception->getMessage()], 500);
-//        }
-//    }
+    function edit(Post $post)
+    {
+        return view('Posts.edit', compact('post'));
+    }
     public function update(Request $request, Post $post)
     {
         try {
@@ -86,7 +66,8 @@ class PostController extends Controller
                 $post->photo = $photoPath;
             }
             $post->save();
-            return response()->json(['message' => 'Post updated successfully', 'post' => $post], 200);
+            return redirect()->back()->with(['message' => 'Post updated successfully']);
+
         } catch (ValidationException $exception) {
             return response()->json(['message' => 'Errors', 'errors' => $exception->errors()], 422);
         } catch (\Exception $exception) {

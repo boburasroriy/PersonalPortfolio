@@ -26,7 +26,8 @@ class PostTest extends TestCase
             'title' => 'test title',
             'text' => 'test text',
         ]);
-        $response->assertStatus(201);
+        $response->assertStatus(302);
+
         $this->assertDatabaseHas('posts', [
             'title' => 'test title',
             'text' => 'test text',
@@ -66,7 +67,7 @@ class PostTest extends TestCase
       'title' => 'Updated title',
       'text' => 'Updated text',
   ]);
-    $response->assertStatus(200);
+        $response->assertStatus(302);
     $this->assertDatabaseHas('posts', [
         'id' => $post->id,
         'title' => 'Updated title',

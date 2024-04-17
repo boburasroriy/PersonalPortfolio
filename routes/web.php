@@ -11,10 +11,11 @@ use \App\Http\Controllers\CommentController;
 Route::get('/', [Controller::class, 'home'])->name('home');
 Route::get('/login', [Controller::class, 'login'])->name('login');
 Route::get('/registration', [Controller::class, 'registration'])->name('registration');
-
-Route::post('/registration', [RegistrationController::class, 'register']);
-Route::post('/login', [LoginController::class, 'login']);
 Route::get('/dashboard', [Controller::class, 'dashboard'])->middleware('admin');
+Route::get('/profile/{id}', [Controller::class, 'profile'])->name('profile')->middleware('auth');
+
+Route::post('/registration', [RegistrationController::class, 'register'])->name('register');
+Route::post('/signIn', [LoginController::class, 'signIn'])->name('singIn');
 Route::resource('comments', CommentController::class)->middleware('auth');
 Route::resources([
     'posts' => PostController::class,

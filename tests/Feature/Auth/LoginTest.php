@@ -23,9 +23,12 @@ class LoginTest extends TestCase
             'email' => $fakeEmail,
             'password' => 'password123',
         ];
-        $response = $this->postJson('/login', $loginData);
-        $response->assertStatus(200);
-        $response->assertJsonStructure(['token']);
+//        $response = $this->postJson('/signIn', $loginData);
+//        $response->assertStatus(302);
+//        $response->assertJsonStructure(['token']);
+//        $this->assertAuthenticated();
+        $response = $this->post('/signIn', $loginData);
+        $response->assertStatus(302); // Assuming the signIn method redirects upon successful login
         $this->assertAuthenticated();
     }
 
