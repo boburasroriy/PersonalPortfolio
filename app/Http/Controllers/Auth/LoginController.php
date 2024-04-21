@@ -16,18 +16,22 @@ class LoginController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $token = $user->createToken('Personal')->accessToken;
 
-            return redirect()->route('home')->with('success', 'Registration successful!');
-
-
+            return redirect()->route('home')->with('success', 'You are logged in!');
         }else{
             Session::flash('error', 'The provided credentials do not match our records.');
-            return redirect()->back();}
-
+            return redirect()->back();
+        }
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('home')->with('status', 'You have been logged out.');
     }
 
 }

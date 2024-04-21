@@ -73,12 +73,17 @@
         <div class="form-group">
             <button type="submit">Register</button>
         </div>
+        @if ($errors->has('email'))
+            <span style="color: red;"  class="invalid-feedback">
+        <strong>{{ $errors->first('email') }}</strong>
+             </span>
+        @endif
+        @if ($errors->has('password'))
+            <span style="color: red"  class="invalid-feedback">
+        <strong>{{ $errors->first('password') }}</strong>
+             </span>
+        @endif
     </form>
-    @if(Session::has('success'))
-        <script>
-            alert("{{ Session::get('success') }}");
-        </script>
-    @endif
 </div>
 </body>
 </html>

@@ -3,16 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function store(Request $request){
-        $comment = Comment::create([
-            'body' => $request->body,
+    function store(Request $request, $post_id)
+    {
+        $request->validate([
+            'content' => 'required|string',
+        ]);
+        $comment = new Comment([
+            'content' => $request->input('content'),
+            'user_id' => Auth::user()->getAuthIdentifier(),
+            'post_id' => $post_id,
         ]);
 
-        // Return a success response
-        return response()->json(['message' => 'Your comment was posted'], 200);
+        $comment->save();
+
+        // Redirect back to the post
+        return redirect()->route('posts.show', ['post' => $post_id]);
     }
+
 }

@@ -9,7 +9,7 @@
 </head>
 <body>
 @foreach($posts as $post)
-         <img src="{{asset('storage/' . $post->photo) }} " alt="photos">
+         <img style="width: 250px" src="{{asset('storage/' . $post->photo) }} " alt="photos">
         <h2>{{ $post->title }}</h2>
         <p>{{ $post->text }}</p>
 

@@ -70,7 +70,6 @@
                 {{ Session::get('error') }}
             </div>
         @endif
-
     </form>
 </div>
 </body>

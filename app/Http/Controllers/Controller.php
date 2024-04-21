@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use http\Env\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-
     function home()
     {
-
         return view('home/home');
     }
 
-    function profile($id)
+    function profile()
     {
-        $user = User::findOrFail($id);
+        $user = Auth::user();
         return view('home/profile', ['user' => $user]);
     }
     function login()
@@ -30,7 +30,6 @@ class Controller extends BaseController
     {
         return view('AuthView/registration');
     }
-
     function dashboard()
     {
         $dashboardName = 'this is admin panel';

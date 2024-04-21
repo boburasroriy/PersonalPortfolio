@@ -13,7 +13,7 @@ class PostController extends Controller
         $posts = Post::all();
         return view('Posts.index', compact('posts'));
     }
-    public function create()
+        public function create()
     {
         return view('Posts.create');
     }
@@ -40,6 +40,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return view('Posts.show', compact('post'));
+
     }
     function edit(Post $post)
     {

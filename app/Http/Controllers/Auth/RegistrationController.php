@@ -10,27 +10,26 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use Nette\Schema\ValidationException;
 
 class RegistrationController extends Controller
 {
     function register(Request $request)
     {
-         $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'password' => 'required|min:8|max:20|string',
-        ]);
-         $user = new User([
-             'first_name' => $request->first_name,
-             'last_name' => $request->last_name,
-             'email' => $request->email,
-             'password' => Hash::make($request->password)
-         ]);
-        $user->save();
-        $userD =  new RegistrationResource($user) ;
-        return redirect()->back();
+              $request->validate([
+                'first_name' => 'required|string|max:255',
+                'last_name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email|max:255',
+                'password' => 'required|min:8|max:20|string',
+            ]);
 
+                $user = User::create([
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password)
+                ]);
+                Auth::login($user);
+                return redirect()->route('home')->with('status', 'Registration is successful!');
     }
-
 }
