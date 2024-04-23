@@ -15,7 +15,13 @@ Route::get('/registration', [Controller::class, 'registration'])->name('registra
 Route::get('/dashboard', [Controller::class, 'dashboard'])->middleware('admin');
 Route::get('/profile/', [Controller::class, 'profile'])->name('profile')->middleware('auth');
 
-Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('posts.comments.store')->middleware('auth');
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('posts.comments.store');
+    Route::post('/posts/{postId}/like', [\App\Http\Controllers\LikeController::class, 'likePost'])->name('posts.like');
+    Route::delete('/posts/{postId}/unlike', [\App\Http\Controllers\LikeController::class, 'unlikePost'])->name('posts.unlike');
+});
 
 Route::post('/registration', [RegistrationController::class, 'register'])->name('register');
 Route::post('/signIn', [LoginController::class, 'signIn'])->name('singIn');
