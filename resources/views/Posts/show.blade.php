@@ -11,6 +11,7 @@
 <div style="height: 500px;width: 100%;">
 <img style="height: 100%" src="{{asset('storage/' . $post->photo) }} " alt="photos">
 </div>
+<p>{{ $post->category->name}}</p>
 <h2>{{ $post->title }}</h2>
 <p>{{ $post->text }}</p>
 

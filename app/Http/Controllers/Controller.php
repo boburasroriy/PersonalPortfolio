@@ -16,7 +16,6 @@ class Controller extends BaseController
     {
         return view('home/home');
     }
-
     function profile()
     {
         $user = Auth::user();

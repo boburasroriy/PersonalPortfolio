@@ -15,6 +15,11 @@
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>
     </div>
+    <select name="category_id" >
+         @foreach($categories as $category)
+                     <option value="{{ $category->id }}"> {{$category->name}}</option>
+        @endforeach
+    </select>
     <div>
         <label for="text">Text:</label>
         <textarea id="text" name="text" required></textarea>

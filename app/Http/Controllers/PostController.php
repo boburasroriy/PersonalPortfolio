@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,12 +11,13 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(5);
         return view('Posts.index', compact('posts'));
     }
+
         public function create()
     {
-        return view('Posts.create');
+        return view('Posts.create')->with(['categories' => Category::all()]);
     }
     public function store(Request $request)
     {
@@ -28,6 +30,7 @@ class PostController extends Controller
             $originalName = $request->file('photo')->getClientOriginalName();
             $photoPath = $request->file('photo')->storeAs('PostPhotos', $originalName);
             $post = Post::create([
+                'category_id' => $request->category_id,
                 'photo' => $photoPath,
                 'title' => $request->title,
                 'text' => $request->text,

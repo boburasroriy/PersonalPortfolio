@@ -10,9 +10,16 @@
 <body>
 @foreach($posts as $post)
          <img style="width: 250px" src="{{asset('storage/' . $post->photo) }} " alt="photos">
-        <h2>{{ $post->title }}</h2>
+        <h2>{{ $post->title }} </h2>
+         <p>{{$post->category->name}}</p>
         <p>{{ $post->text }}</p>
 
 @endforeach
+<div style="display: flex; justify-content: center; text-decoration: none">
+    <p style="text-decoration: none">
+        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+
+    </p>
+</div>
 </body>
 </html>

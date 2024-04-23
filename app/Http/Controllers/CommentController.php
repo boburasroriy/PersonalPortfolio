@@ -20,10 +20,7 @@ class CommentController extends Controller
             'user_id' => Auth::user()->getAuthIdentifier(),
             'post_id' => $post_id,
         ]);
-
         $comment->save();
-
-        // Redirect back to the post
         return redirect()->route('posts.show', ['post' => $post_id]);
     }
 
