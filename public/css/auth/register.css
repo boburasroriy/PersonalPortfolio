@@ -1,0 +1,88 @@
+/* login.css */
+:root {
+    --background-color : #090d1f;
+    --while-color: #ffff;
+    --purple-color: #6941C6;
+    --red-color: #C11574;
+    --green-color: #026AA2;
+    --green-color-2:  #027A48;
+    --font-color: #090d1f;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color); /* Gradient background */
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+.container {
+    background: white;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 30px; /* Padding around the form */
+    max-width: 400px; /* Limit the form's width */
+    width: 90%; /* Ensure responsiveness */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Space between form groups */
+}
+
+label {
+    font-size: 14px; /* Smaller label font size */
+    color: #333; /* Dark gray color for text */
+}
+
+input {
+    font-size: 16px; /* Input font size */
+    border: 1px solid var(--background-color); /* Light border for inputs */
+    border-radius: 5px; /* Rounded corners for inputs */
+    padding: 10px; /* Padding for inputs */
+    width: 100%; /* Inputs take full width of container */
+}
+
+.btn {
+    text-align: center; /* Center the button horizontally */
+}
+
+button {
+    background: var(--background-color); /* Gradient button */
+    color: white; /* White text on button */
+    font-size: 16px; /* Button font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for button */
+    padding: 10px 20px; /* Padding for button */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    transition: background 0.3s; /* Smooth transition on hover */
+}
+
+button:hover {
+    background: linear-gradient(135deg, #090d1f, #026AA2); /* Darken on hover */
+}
+
+.alert {
+    border: 1px solid #e0b4b4; /* Light border for alert */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding for alert */
+    background: #f8d7da; /* Light red background for alert */
+    color: #721c24; /* Dark red text for alert */
+}
+.register-link {
+    text-align: center; /* Center the text horizontally */
+    margin-top: 15px; /* Space between button and this section */
+    font-size: 14px; /* Slightly smaller font size */
+}
+
+.register-link a {
+    color: #667eea; /* Matching link color */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s; /* Smooth transition on hover */
+}
+
+.register-link a:hover {
+    color: #564bb2; /* Darken color on hover */
+}

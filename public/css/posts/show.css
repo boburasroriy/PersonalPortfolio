@@ -1,0 +1,100 @@
+/* File: public/css/posts/show.css */
+
+/* Container styling */
+.post-content {
+    max-width: 800px; /* Limit width of the content */
+    margin: 0 auto; /* Center the content */
+    padding: 20px; /* Padding for comfort */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Post image styling */
+.post-image {
+    text-align: center; /* Center the image */
+    margin-bottom: 20px; /* Space below the image */
+}
+
+.post-image img {
+    max-width: 100%; /* Ensure the image doesn't overflow */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Post information styling */
+.post-info {
+    margin-bottom: 20px; /* Space below the post information */
+}
+
+.post-category {
+    font-weight: bold; /* Bold font for category */
+    color: #090d1f; /* Default color */
+}
+
+.post-title {
+    font-size: 28px; /* Larger font for the title */
+    font-weight: bold; /* Bold font */
+}
+
+.post-text {
+    font-size: 16px; /* Regular font size for text */
+    color: #090d1f; /* Default color */
+}
+
+/* Comments section styling */
+.comments-section {
+    margin-top: 20px; /* Space between post and comments */
+}
+
+.comment {
+    padding: 10px; /* Padding within comment */
+    border-radius: 5px; /* Rounded corners */
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+}
+
+.comment p {
+    color: #090d1f; /* Default color for comments */
+}
+
+.comment strong {
+    font-weight: bold; /* Bold font for comment author */
+}
+
+/* Comment form styling */
+.comment-form {
+    margin-top: 20px; /* Space between comments and form */
+}
+
+.comment-form textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for comfort */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border */
+    font-family: 'Inter', serif; /* Consistent font */
+}
+
+.comment-form button {
+    padding: 10px 20px; /* Padding for the button */
+    background: #000e4d; /* Background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.comment-form button:hover {
+    background-color: #003480; /* Darker shade on hover */
+}
+
+/* Dark mode adjustments */
+body.dark-mode .post-category,
+body.dark-mode .post-title,
+body.dark-mode .post-text {
+    color: white; /* Adjust text color for dark mode */
+}
+
+body.dark-mode .comment {
+    background: rgba(0, 0, 0, 0.1); /* Adjust background for dark mode */
+}
+
+body.dark-mode .comment p {
+    color: white; /* Adjust text color for comments in dark mode */
+}

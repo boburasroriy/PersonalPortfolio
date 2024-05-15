@@ -7,6 +7,7 @@ use App\Http\Resources\RegistrationResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -30,6 +31,7 @@ class RegistrationController extends Controller
                     'password' => Hash::make($request->password)
                 ]);
                 Auth::login($user);
+                Cookie::queue('remember_token', $user->id, 20160);
                 return redirect()->route('home')->with('status', 'Registration is successful!');
     }
 }

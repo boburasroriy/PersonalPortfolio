@@ -1,0 +1,75 @@
+
+/* Container styling */
+.container {
+    max-width: 800px; /* Limit width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Padding for comfort */
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Profile header styling */
+.profile-header {
+    text-align: center; /* Center the content */
+}
+
+.profile-header h1 {
+    font-size: 28px; /* Larger font for the name */
+    font-weight: bold; /* Bold font */
+}
+
+/* Profile details styling */
+.profile-details {
+    margin-top: 20px; /* Space between header and details */
+}
+
+.profile-details ul {
+    list-style: none; /* Remove default list bullets */
+    padding: 0; /* No padding */
+}
+
+.profile-details li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.profile-details label {
+    font-weight: bold; /* Make labels bold */
+    color: #090d1f ;
+}
+
+.profile-details span {
+    color: #090d1f ;
+}
+
+/* Button container styling */
+.button-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Space above the button */
+
+}
+
+.button-container button {
+    padding: 10px 20px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    color: white;
+    background: #000e4d;
+}
+.button-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Space above the button */
+}
+.button-container button:hover {
+    background-color: #003480; /* Darker shade on hover */
+}
+body.dark-mode .profile-details span  {
+    color: white ;
+}
+body.dark-mode .profile-details label   {
+    color: white; /* Light color for login link in dark mode */
+}
+
+body.dark-mode .button-container   {
+    color: white; /* Light color for login link in dark mode */
+}

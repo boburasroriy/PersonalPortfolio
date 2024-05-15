@@ -1,0 +1,87 @@
+:root {
+    --background-color : #090d1f;
+    --while-color: #ffff;
+    --purple-color: #6941C6;
+    --red-color: #C11574;
+    --green-color: #026AA2;
+    --green-color-2:  #027A48;
+    --font-color: #090d1f;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Inter, serif;
+    color: var(--background-color);
+}
+.container {
+    width: 1216px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+.navbar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: var(--while-color);
+    font-family: Inter, serif;
+    font-weight: 400;
+}
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    color: var(--background-color);
+    text-decoration:none
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        padding: 15px 10px; /* Adjust padding */
+    }
+
+    .navbar-right {
+        justify-content: space-between; /* Adjust alignment */
+        width: 100%; /* Full width */
+        margin-top: 10px; /* Add space */
+    }
+}
+
+.login-link {
+    text-decoration: none;
+    margin: 15px;
+    color: var(--font-color);
+
+}
+
+.toggle-mode {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 1.5em; /* Bigger font for better visibility */
+    cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+
+body.dark-mode {
+    background-color: var(--background-color); /* Dark mode background color */
+    color: #ffffff; /* Light text color */
+}
+
+body.dark-mode .navbar {
+    background-color: var(--background-color); /* Dark mode navbar color */
+}
+
+body.dark-mode .login-link {
+    color: #ffffff; /* Light color for login link in dark mode */
+}
+body.dark-mode .logo {
+    color: #ffffff; /* Light color for login link in dark mode */
+}
+

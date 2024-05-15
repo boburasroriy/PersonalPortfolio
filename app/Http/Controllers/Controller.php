@@ -14,6 +14,7 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
     function home()
     {
+
         return view('home/home');
     }
     function profile()

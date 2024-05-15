@@ -1,35 +1,39 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog</title>
-</head>
-<body>
-<div style="height: 500px;width: 100%;">
-<img style="height: 100%" src="{{asset('storage/' . $post->photo) }} " alt="photos">
-</div>
-<p>{{ $post->category->name}}</p>
-<h2>{{ $post->title }}</h2>
-<p>{{ $post->text }}</p>
+<x-layouts.main>
+    <x-slot:title>
+        Post
+        </x-slot>
+        <x-layouts.nav></x-layouts.nav>
+        <link rel="stylesheet" href="{{asset('css/posts/show.css')}}">
+        <div class="post-content">
+            <!-- Post image -->
+            <div class="post-image">
+                <img src="{{ asset('/storage/' .  $post->photo) }}" alt="{{ $post->title }}">
+            </div>
 
-@foreach($post->comments as $comment)
-<div style="color: #a0aec0;">
-    <p><strong>{{ $comment->user->first_name }}</strong> commented at {{ $comment->created_at }}</p>
-    <p>{{ $comment->content  }}</p>
+            <!-- Post information -->
+            <div class="post-info">
+                <p class="post-category">{{ $post->category->name }}</p>
+                <h2 class="post-title">{{ $post->title }}</h2>
+                <p class="post-text">{{ $post->text }}</p>
+            </div>
 
-</div>
-@endforeach
+            <!-- Comments section -->
+            <div class="comments-section">
+                @foreach($post->comments as $comment)
+                    <div class="comment">
+                        <p><strong>{{ $comment->user->first_name . ' ' . $comment->user->last_name  }}</strong> commented at {{ $comment->created_at->format('Y-m-d') }}</p>
+                        <p>{{ $comment->content }}</p>
+                    </div>
+                @endforeach
+            </div>
 
-<form action="{{route('posts.comments.store', $post->id)}}" method="POST">
-    @csrf
-    <label for="content"></label>
-    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <!-- Comment form -->
+            <form class="comment-form" action="{{route('posts.comments.store', $post->id)}}" method="POST">
+                @csrf
+                <label for="content">Leave a comment:</label>
+                <textarea style="font-family: Inter, serif" name="content" id="content" cols="30" rows="5"></textarea>
 
-    <button type="submit">Send</button>
-</form>
-
-</body>
-</html>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+</x-layouts.main>

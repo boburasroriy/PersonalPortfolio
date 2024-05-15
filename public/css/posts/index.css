@@ -1,0 +1,166 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Optional slide-up effect */
+    }
+    to {
+        opacity: 4;
+        transform: translateY(0); /* Back to original position */
+    }
+}
+@media (max-width: 768px) {
+    .post {
+        flex: 1 1 45%; /* Change to two columns */
+    }
+}
+
+@media (max-width: 576px) {
+    .post {
+        flex: 1 1 100%; /* Change to one column */
+
+    }
+
+    .routeCreatePost, .routeDeletePost, .routeEditPost {
+        padding: 5px 10px; /* Adjust button padding */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .post-title {
+        font-size: 18px; /* Adjust title size */
+    }
+
+    .post-text {
+        font-size: 12px; /* Adjust text size */
+    }
+}
+
+
+.post-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between posts */
+    justify-content: space-between;
+}
+
+.post {
+    padding: 10px; /* Maintain compactness */
+    flex: 1 1 30%; /* Three columns */
+    min-width: 250px; /* Minimum width for posts */
+    max-width: 550px;
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 1s ease-in-out forwards; /* Apply the fade-in animation */
+}
+
+.post-image {
+    display: block;
+    width: 100%; /* Full width */
+    height: 180px; /* Image height */
+    object-fit: cover; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
+}
+
+.post-image:hover {
+    transform: scale(1.1); /* Zoom to 110% */
+}
+
+.post-title {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--font-color);
+}
+.routeCreatePost{
+    background: var(--background-color); /* Gradient button */
+    border: 1px solid #297efd  ;
+    font-size: 16px; /* Button font size */
+    border-radius: 5px; /* Rounded corners for button */
+    padding: 10px 20px; /* Padding for button */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    transition: background 0.3s; /* Smooth transition on hover */
+}
+.routeDeletePost{
+    background: darkred; /* Gradient button */
+    font-size: 16px; /* Button font size */
+    border: none;
+    color: white;
+    border-radius: 5px; /* Rounded corners for button */
+    padding: 5px 10px; /* Padding for button */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    transition: background 0.3s; /* Smooth transition on hover */
+}
+.routeEditPost{
+    background: darkgreen; /* Gradient button */
+    font-size: 16px; /* Button font size */
+    border: none;
+    color: white;
+    border-radius: 5px; /* Rounded corners for button */
+    padding: 5px 10px; /* Padding for button */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    transition: background 0.3s; /* Smooth transition on hover */
+}
+.routeCreatePost{
+    color: white; /* White text on button */
+    background: #0052ec;
+    text-decoration: none;
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+}
+.routeCreatePost:hover{
+    background: linear-gradient( #297efd, #026AA2); /* Darken on hover */
+
+}
+.post-title:hover{
+    text-decoration: underline;
+}
+
+.post-date {
+    font-size: 12px; /* Date font size */
+    color: #6941C6; /* Specific color for the date */
+    margin-bottom: 5px; /* Margin below the date */
+}
+
+.post-text {
+    font-size: 14px; /* Text font size */
+    color: var(--font-color); /* Matching background color */
+    overflow: hidden; /* Hide overflow content */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Limit to two lines */
+}
+
+.post-category{
+    font-size: 12px;
+    background-color: #F9F5FF; /* Light blue background */
+    border-radius: 15px;
+    padding: 6px;
+    color: #6941C6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+
+}
+
+.category-sports {
+    background-color: lightgreen; /* Light green background */
+    color: darkgreen; /* Dark green font */
+}
+
+.category-entertainment {
+    background-color: lightcoral; /* Light coral background */
+    color: darkred; /* Dark red font */
+}
+body.dark-mode .post-text {
+    background-color: var(--background-color); /* Dark mode navbar color */
+}
+body.dark-mode .post-text {
+    color: #ffffff; /* Light color for login link in dark mode */
+}
+
+body.dark-mode .post-title {
+    background-color: var(--background-color); /* Dark mode navbar color */
+}
+body.dark-mode .post-title {
+    color: #ffffff; /* Light color for login link in dark mode */
+}
