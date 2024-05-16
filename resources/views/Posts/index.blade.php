@@ -31,14 +31,6 @@
                             <div class="category_container">
                                 <p class="post-category">{{$post->category->name }}</p> <!-- Display post category -->
                                 <p class="post-date">{{ $post->created_at->format('M d, Y') }}</p> <!-- Display creation date -->
-
-                                <!-- Like icon and count -->
-                                <div style="display: flex; align-items: center; gap: 5px;">
-                                    <i class="fas fa-heart" style="color: red;"></i>
-                                    <span>{{ $post->likes_count }}</span>
-                                </div>
-
-                                <!-- Edit and Delete buttons -->
                                 @if(auth()->user() && (auth()->user()->role_id == 2 || auth()->user()->role_id == 3))
                                     <div style="display: flex; gap: 5px">
                                         <a style="color: white; text-decoration: none; " href="{{route('posts.edit', $post->id)}}"><button class="routeEditPost">Edit</button></a>
@@ -54,7 +46,7 @@
                     </div>
                 @endforeach
             </div>
-            {{ $posts->links('vendor.pagination.bootstrap-4') }} <!-- Pagination -->
+            {{ $posts->links('vendor.pagination.bootstrap-4') }}
         </div>
         <script src="{{asset('js/posts/index.js')}}"></script>
 </x-layouts.main>

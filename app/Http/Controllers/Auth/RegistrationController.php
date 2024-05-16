@@ -30,7 +30,7 @@ class RegistrationController extends Controller
                     'email' => $request->email,
                     'password' => Hash::make($request->password)
                 ]);
-                Auth::login($user);
+                Auth::login($user, true);
                 Cookie::queue('remember_token', $user->id, 20160);
                 return redirect()->route('home')->with('status', 'Registration is successful!');
     }

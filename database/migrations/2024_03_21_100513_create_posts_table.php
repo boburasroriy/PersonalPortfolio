@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('photo');
             $table->string('title');
             $table->text('text');
+//            $table->unsignedInteger('likes')->default(0);
             $table->timestamps();
         });
     }

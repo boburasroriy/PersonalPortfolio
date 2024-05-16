@@ -24,8 +24,7 @@ class PostController extends Controller
     {
         try {
             $validation = $request->validate([
-                'photo' => 'required|mimes:jpeg,png,jpg,gif,webp|max:4attach - mahkamlamoq
-048',
+                'photo' => 'required|mimes:jpeg,png,jpg,gif,webp',
                 'title' => 'required|string|max:255',
                 'text' => 'required',
             ]);

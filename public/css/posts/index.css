@@ -139,8 +139,12 @@
     justify-content: center;
     align-items: center;
     width: fit-content;
-
 }
+.pagination{
+    text-decoration: none;
+    color: white;
+}
+
 
 .category-sports {
     background-color: lightgreen; /* Light green background */

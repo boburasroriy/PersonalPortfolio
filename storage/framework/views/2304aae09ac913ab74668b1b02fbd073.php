@@ -76,14 +76,6 @@
                             <div class="category_container">
                                 <p class="post-category"><?php echo e($post->category->name); ?></p> <!-- Display post category -->
                                 <p class="post-date"><?php echo e($post->created_at->format('M d, Y')); ?></p> <!-- Display creation date -->
-
-                                <!-- Like icon and count -->
-                                <div style="display: flex; align-items: center; gap: 5px;">
-                                    <i class="fas fa-heart" style="color: red;"></i>
-                                    <span><?php echo e($post->likes_count); ?></span>
-                                </div>
-
-                                <!-- Edit and Delete buttons -->
                                 <?php if(auth()->user() && (auth()->user()->role_id == 2 || auth()->user()->role_id == 3)): ?>
                                     <div style="display: flex; gap: 5px">
                                         <a style="color: white; text-decoration: none; " href="<?php echo e(route('posts.edit', $post->id)); ?>"><button class="routeEditPost">Edit</button></a>
@@ -99,7 +91,8 @@
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
-            <?php echo e($posts->links('vendor.pagination.bootstrap-4')); ?> <!-- Pagination -->
+            <?php echo e($posts->links('vendor.pagination.bootstrap-4')); ?>
+
         </div>
         <script src="<?php echo e(asset('js/posts/index.js')); ?>"></script>
  <?php echo $__env->renderComponent(); ?>

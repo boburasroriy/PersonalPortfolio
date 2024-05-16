@@ -24,8 +24,6 @@
             body.classList.add("light-mode");
             toggleButton.innerHTML = '<i class="fas fa-moon" style="color: #090d1f;"></i>'; // Sun icon for light mode
         }
-
-        // Toggle theme on button click
         toggleButton.addEventListener("click", () => {
             if (body.classList.contains("dark-mode")) { // If dark mode, switch to light
                 body.classList.remove("dark-mode");

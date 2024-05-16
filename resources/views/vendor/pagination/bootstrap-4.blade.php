@@ -1,4 +1,42 @@
 @if ($paginator->hasPages())
+    <style>
+        :root {
+            --background-color : #090d1f;
+            --while-color: #ffff;
+            --purple-color: #6941C6;
+            --red-color: #C11574;
+            --green-color: #026AA2;
+            --green-color-2:  #027A48;
+            --font-color: #090d1f;
+        }
+        body .pagination{
+            display: flex;
+            justify-content: center;
+            font-size: 16px;
+        }
+        body .pagination li a {
+            text-decoration: none; /* Remove underline */
+            color: white;
+        }
+
+        body .pagination li {
+            display: inline-block; /* Prevent links from appearing in one line */
+            margin-right: 5px; /* Add space between links */
+            color: #007bff;
+            justify-content: center;
+            }
+
+        body.light-mode .pagination li a {
+            color: var(--background-color); /* Light text color */
+        }
+        body.dark-mode .pagination li {
+            color: #007bff; /* Light text color */
+        }
+
+        body.dark-mode .navbar {
+            background-color: var(--background-color); /* Dark mode navbar color */
+        }
+    </style>
     <nav>
         <ul class="pagination">
             {{-- Previous Page Link --}}
@@ -14,11 +52,6 @@
 
             {{-- Pagination Elements --}}
             @foreach ($elements as $element)
-                {{-- "Three Dots" Separator --}}
-                @if (is_string($element))
-                    <li class="page-item disabled" aria-disabled="true"><span class="page-link">{{ $element }}</span></li>
-                @endif
-
                 {{-- Array Of Links --}}
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
