@@ -21,9 +21,5 @@ class CategorySeeder extends Seeder
         Category::create(['name'=>'Quotes']);
         Category::create(['name'=>'Mindset']);
         Category::create(['name'=>'IELTS writing']);
-
-
-
-
     }
 }

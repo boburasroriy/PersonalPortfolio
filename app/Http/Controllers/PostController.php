@@ -12,11 +12,41 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(9);
-
-        return view('Posts.index', compact('posts'));
+        $categories = Category::all();
+        // Initialize $selectedCategoryId with null as no category is initially selected
+        $selectedCategoryId = null;
+        return view('Posts.index', compact('posts', 'categories', 'selectedCategoryId'));
     }
 
-        public function create()
+    public function CategoryShow($id)
+    {
+        $category = Category::findOrFail($id);
+        $posts = $category->posts()->orderBy('created_at', 'desc')->paginate(9);
+        $categories = Category::all();
+        // Set $selectedCategoryId to the ID of the currently selected category
+        $selectedCategoryId = $category->id;
+        return view('Posts.index', compact('category', 'posts', 'categories', 'selectedCategoryId'));
+    }
+
+    public function filter(Request $request)
+    {
+        $categoryId = $request->input('category_id');
+        $selectedCategoryId = null;
+        $category = null; // Initialize $category variable
+
+        if ($categoryId) {
+            $category = Category::findOrFail($categoryId);
+            $posts = $category->posts()->orderBy('created_at', 'desc')->paginate(9);
+            $selectedCategoryId = $categoryId;
+        } else {
+            $posts = Post::orderBy('created_at', 'desc')->paginate(9);
+        }
+
+        $categories = Category::all();
+        return view('Posts.index', compact('category', 'posts', 'categories', 'selectedCategoryId'));
+    }
+
+    public function create()
     {
         return view('Posts.create')->with(['categories' => Category::all()]);
     }
@@ -30,8 +60,6 @@ class PostController extends Controller
             ]);
             $originalName = $request->file('photo')->getClientOriginalName();
             $photoPath = $request->file('photo')->storeAs('post-photos', $originalName);
-
-
             $post = Post::create([
                 'category_id' => $request->category_id,
                 'photo' => $photoPath,
@@ -46,7 +74,6 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return view('Posts.show', compact('post'));
-
     }
     function edit(Post $post)
     {

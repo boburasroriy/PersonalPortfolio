@@ -53,14 +53,28 @@
 
         <div class="container">
             <link rel="stylesheet" href="<?php echo e(asset('css/posts/index.css')); ?>">
-            <div  style="display: flex; justify-content: space-between">
+            <div style="display: flex; justify-content: space-between">
                 <h2>All blog posts</h2>
+
                 <?php if(auth()->user() && (auth()->user()->role_id == 2 || auth()->user()->role_id == 3)): ?>
                     <a style="color: white; text-decoration: none; margin-top: 30px" href="<?php echo e(route('posts.create')); ?>">
                         <button class="routeCreatePost">Create Post</button>
                     </a>
                 <?php endif; ?>
             </div>
+            <form action="<?php echo e(route('categories.filter')); ?>" method="POST">
+                <?php echo csrf_field(); ?>
+                <label class="categories" for="category-select">Categories</label>
+                <select name="category_id" id="category-select" onchange="this.form.submit()" class="custom-select">
+                    <option value="">All Posts</option>
+                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($category->id); ?>" <?php echo e($category->id == $selectedCategoryId ? 'selected' : ''); ?>>
+                            <?php echo e($category->name); ?>
+
+                        </option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+            </form>
             <div class="post-grid"> <!-- Grid container for posts -->
                 <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="post"> <!-- Individual post item -->

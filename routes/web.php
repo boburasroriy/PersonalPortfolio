@@ -7,7 +7,6 @@ use \Illuminate\Support\Facades\Auth;
 use \App\Http\Controllers\PostController;
 use \App\Http\Controllers\Controller;
 use \App\Http\Controllers\CommentController;
-use \App\Http\Controllers\LikeController;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/registration', [Controller::class, 'registration'])->name('registration');
@@ -29,5 +28,10 @@ Route::middleware(['auth','admin'] )->group(function () {
     Route::resource('posts', PostController::class)->only(['create', 'store', 'edit', 'update', 'destroy']);
     Route::get('/dashboard', [Controller::class, 'dashboard']);
 });
+
+Route::get('/categories/{id}', [PostController::class, 'CategoryShow'])->name('categories.show');
+Route::get('/categories/{id}', [PostController::class, 'filter'])->name('categories.filter');
+Route::post('/categories/filter', [PostController::class, 'filter'])->name('categories.filter');
+
 
 

@@ -8,14 +8,27 @@
 
         <div class="container">
             <link rel="stylesheet" href="{{ asset('css/posts/index.css') }}">
-            <div  style="display: flex; justify-content: space-between">
+            <div style="display: flex; justify-content: space-between">
                 <h2>All blog posts</h2>
+
                 @if(auth()->user() && (auth()->user()->role_id == 2 || auth()->user()->role_id == 3))
                     <a style="color: white; text-decoration: none; margin-top: 30px" href="{{route('posts.create')}}">
                         <button class="routeCreatePost">Create Post</button>
                     </a>
                 @endif
             </div>
+            <form action="{{ route('categories.filter') }}" method="POST">
+                @csrf
+                <label class="categories" for="category-select">Categories</label>
+                <select name="category_id" id="category-select" onchange="this.form.submit()" class="custom-select">
+                    <option value="">All Posts</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ $category->id == $selectedCategoryId ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </form>
             <div class="post-grid"> <!-- Grid container for posts -->
                 @foreach($posts as $post)
                     <div class="post"> <!-- Individual post item -->
