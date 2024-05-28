@@ -26,8 +26,8 @@ class UserSeeder extends Seeder
             'role_id'=>3,
             'first_name' => 'Admin',
             'last_name' => 'Asrorov',
-            'email' => 'bobur@gmail.com',
-            'password' => \Illuminate\Support\Facades\Hash::make('secret'),
+            'email' => 'marjona.urinbayeva@gmail.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('Mysecretholder'),
         ]);
 
     }

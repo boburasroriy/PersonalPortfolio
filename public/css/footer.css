@@ -1,0 +1,25 @@
+
+/*.author p {*/
+/*    margin-top: -15px;*/
+/*}*/
+/*.developer p {*/
+/*    margin-top: -15px;*/
+/*}*/
+/*.author a {*/
+/*    color: #007bff;*/
+/*}*/
+/*.developer a {*/
+/*    color: #007bff;*/
+/*}*/
+/*.rights  {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*body.dark-mode .author a {*/
+/*    color: #007bff; !* Light color for login link in dark mode *!*/
+/*}*/
+/*body.dark-mode .developer a {*/
+/*    color: #007bff; !* Light color for login link in dark mode *!*/
+/*}*/

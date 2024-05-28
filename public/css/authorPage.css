@@ -1,0 +1,79 @@
+.abouttheauthor{
+    display: none;
+}
+h2{
+
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+p{
+    width: 700px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+.authorPage h1{
+    margin: 30px 0;
+    padding: 0;
+    font-family: Inter, serif;
+    font-weight: bold;
+    color: var(--font-color);
+    font-size: 224px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--font-color);
+    border-bottom: 1px solid var(--font-color);
+    line-height: 250px;
+}
+body.dark-mode .authorPage {
+    color: var(--while-color); /* Dark mode navbar color */
+}
+body.dark-mode h1 {
+    color: #ffffff; /* Light color for login link in dark mode */
+}
+/*@media (max-width: 1024px) {*/
+/*   .authorPage h1 {*/
+/*        font-size: 180px; !* Reduce font size *!*/
+/*        line-height: 190px; !* Adjust line height *!*/
+/*        border-top: 1px solid var(--font-color); !* Retain border *!*/
+/*        border-bottom: 1px solid var(--font-color);*/
+/*    }*/
+/*}*/
+
+/*!* Responsive styling for small screens (e.g., phones) *!*/
+/*@media (max-width: 768px) {*/
+/*   .authorPage h1 {*/
+/*        font-size: 120px; !* Further reduce font size *!*/
+/*        line-height: 130px; !* Adjust line height *!*/
+/*        margin: 20px 0; !* Decrease margin *!*/
+/*        border-top: none; !* Remove top border *!*/
+/*        border-bottom: none; !* Remove bottom border *!*/
+/*    }*/
+/*}*/
+
+/* Responsive styling for extra-small screens */
+@media (max-width: 576px) {
+
+   .authorPage h1 {
+      margin-right: 30px;
+        font-size: 80px; /* Smaller font size for tiny screens */
+       line-height: 130px; /* Adjust line height */
+
+
+
+    }
+    .authorPage h2 {
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 25px; /* Smaller font size for tiny screens */
+
+    }
+    .authorPage p {
+        font-size: 8px; /* Smaller font size for tiny screens */
+        width: 330px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

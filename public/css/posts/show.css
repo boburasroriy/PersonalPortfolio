@@ -98,3 +98,8 @@ body.dark-mode .comment {
 body.dark-mode .comment p {
     color: white; /* Adjust text color for comments in dark mode */
 }
+
+.highlight{
+    background-color: yellow;
+
+}

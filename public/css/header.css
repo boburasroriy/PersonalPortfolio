@@ -5,7 +5,7 @@
     font-family: Inter, serif;
      font-weight: bold;
      color: var(--font-color);
-    font-size: 244px;
+    font-size: 224px;
     display: flex;
      justify-content: center;
      align-items: center;
@@ -13,9 +13,15 @@
      border-bottom: 1px solid var(--font-color);
      line-height: 250px;
  }
+ .abouttheauthor{
+     color: black;  display: flex; justify-content: flex-end; margin-right: 70px; margin-top: -50px
+ }
 body.dark-mode .header {
     background-color: var(--background-color); /* Dark mode navbar color */
 }
+ body.dark-mode .abouttheauthor {
+     color: var(--while-color); /* Dark mode navbar color */
+ }
 body.dark-mode h1 {
     color: #ffffff; /* Light color for login link in dark mode */
 }
@@ -46,6 +52,12 @@ body.dark-mode h1 {
      h1 {
          font-size: 60px; /* Smaller font size for tiny screens */
          line-height: 90px; /* Adjust line height */
-         margin: 10px 0; /* Smaller margin */
+         /*margin: 10px 0; !* Smaller margin *!*/
+         margin-right: 30px;
+     }
+     .abouttheauthor{
+         font-size: 12px;
+         margin-top: -20px;
+         margin-right: 50px;
      }
  }

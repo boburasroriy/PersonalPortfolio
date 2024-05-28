@@ -17,11 +17,16 @@
 @media (max-width: 576px) {
     .post {
         flex: 1 1 100%; /* Change to one column */
+        margin-right: 20px;
+        overflow-x: hidden;
 
     }
-
+.routeCreatePost{
+    margin-right: 50px;
+    margin-top: -20px;
+}
     .routeCreatePost, .routeDeletePost, .routeEditPost {
-        padding: 5px 10px; /* Adjust button padding */
+        /*padding: 5px 10px; !* Adjust button padding *!*/
         font-size: 14px; /* Adjust font size */
     }
 
@@ -239,5 +244,10 @@ body.dark-mode .post-title {
     margin-bottom: 5px;
     font-weight: bold;
     color: #555;
+}
+.highlight{
+    background-color: yellow;
+    color: black;
+
 }
 

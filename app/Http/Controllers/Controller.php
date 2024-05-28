@@ -22,6 +22,11 @@ class Controller extends BaseController
         $user = Auth::user();
         return view('home/profile', ['user' => $user]);
     }
+
+    function authorPage()
+    {
+        return view('home/authorPage');
+    }
     function login()
     {
         return view('AuthView/login');
