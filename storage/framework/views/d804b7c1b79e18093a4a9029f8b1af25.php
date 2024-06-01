@@ -9,7 +9,7 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('title', null, []); ?> 
-        Post
+        My post
          <?php $__env->endSlot(); ?>
 
         <?php if (isset($component)) { $__componentOriginal9e79cd15ec5b5957133f9c0a985abe76 = $component; } ?>
@@ -38,7 +38,6 @@
             }
         </style>
         <link rel="stylesheet" href="<?php echo e(asset('css/posts/show.css')); ?>">
-
         <div class="post-content">
             <!-- Post image -->
             <div class="post-image">

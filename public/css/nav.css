@@ -42,7 +42,13 @@ body {
     color: var(--background-color);
     text-decoration:none
 }
+
+
 @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        padding: 35px 10px; /* Adjust padding */
+    }
     .navbar {
         flex-direction: column; /* Stack items vertically */
         padding: 35px 10px; /* Adjust padding */

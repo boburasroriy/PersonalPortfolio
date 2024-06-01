@@ -1,6 +1,6 @@
 <x-layouts.main>
     <x-slot:title>
-        Post
+        My post
         </x-slot>
 
         <x-layouts.nav></x-layouts.nav>
@@ -11,7 +11,6 @@
             }
         </style>
         <link rel="stylesheet" href="{{ asset('css/posts/show.css') }}">
-
         <div class="post-content">
             <!-- Post image -->
             <div class="post-image">

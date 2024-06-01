@@ -1,19 +1,29 @@
-.abouttheauthor{
+.abouttheauthor {
     display: none;
 }
-h2{
 
+h2 {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
+    font-size: 50px;
 }
-p{
+
+.aboutTitle {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+p {
     width: 700px;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
+    font-size: 20px;
 }
-.authorPage h1{
+
+.authorPage h1 {
     margin: 30px 0;
     padding: 0;
     font-family: Inter, serif;
@@ -27,53 +37,127 @@ p{
     border-bottom: 1px solid var(--font-color);
     line-height: 250px;
 }
+
 body.dark-mode .authorPage {
-    color: var(--while-color); /* Dark mode navbar color */
+    color: var(--white-color); /* Dark mode text color */
 }
+
 body.dark-mode h1 {
-    color: #ffffff; /* Light color for login link in dark mode */
+    color: #ffffff; /* Light color for heading in dark mode */
 }
-/*@media (max-width: 1024px) {*/
-/*   .authorPage h1 {*/
-/*        font-size: 180px; !* Reduce font size *!*/
-/*        line-height: 190px; !* Adjust line height *!*/
-/*        border-top: 1px solid var(--font-color); !* Retain border *!*/
-/*        border-bottom: 1px solid var(--font-color);*/
-/*    }*/
-/*}*/
 
-/*!* Responsive styling for small screens (e.g., phones) *!*/
-/*@media (max-width: 768px) {*/
-/*   .authorPage h1 {*/
-/*        font-size: 120px; !* Further reduce font size *!*/
-/*        line-height: 130px; !* Adjust line height *!*/
-/*        margin: 20px 0; !* Decrease margin *!*/
-/*        border-top: none; !* Remove top border *!*/
-/*        border-bottom: none; !* Remove bottom border *!*/
-/*    }*/
-/*}*/
+.credentialsSection .job,
+.credentialsSection .study,
+.credentialsSection .club,
+.credentialsSection .quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
 
-/* Responsive styling for extra-small screens */
-@media (max-width: 576px) {
+.credentialsSection .interests,
+.credentialsSection .activities {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
 
-   .authorPage h1 {
-      margin-right: 30px;
-        font-size: 80px; /* Smaller font size for tiny screens */
-       line-height: 130px; /* Adjust line height */
+.credentialsSection .interests-images,
+.credentialsSection .activities-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
+.credentialsSection img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px;
+}
 
+.credentialsSection .quote img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
-    }
-    .authorPage h2 {
-        margin-right: auto;
-        margin-left: auto;
-        font-size: 25px; /* Smaller font size for tiny screens */
-
-    }
+@media (max-width: 1024px) {
     .authorPage p {
-        font-size: 8px; /* Smaller font size for tiny screens */
-        width: 330px;
+        width: 80%;
+    }
+
+    .credentialsSection img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .credentialsSection .quote img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .authorPage h1 {
+        font-size: 140px;
+        line-height: 190px;
+        border-top: 1px solid var(--font-color);
+        border-bottom: 1px solid var(--font-color);
+    }
+
+    .authorPage p {
+        font-size: 16px;
+        width: 90%;
+    }
+
+    .credentialsSection img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .credentialsSection .quote img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    .authorPage{
         margin-right: auto;
         margin-left: auto;
+        box-sizing: border-box;
+    }
+    .authorPage h1 {
+        font-size: 80px;
+        line-height: 130px;
+        /*margin: 70px 0;*/
+        /*margin-right: 30px;*/
+        border-top: none;
+        border-bottom: none;
+    }
+
+    .authorPage h2 {
+        font-size: 25px;
+    }
+
+    .authorPage p {
+        font-size: 12px;
+        width: 90%;
+    }
+
+    .credentialsSection img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .credentialsSection .quote img {
+        width: 50px;
+        height: 50px;
     }
 }

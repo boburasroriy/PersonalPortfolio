@@ -45,3 +45,18 @@ button:hover {
     background-color: #003480; /* Darker shade on hover */
 }
 
+.highlight {
+    background-color: yellow;
+}
+.form-control {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+.contenteditable-div {
+    font-family: Inter, serif;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}

@@ -2,7 +2,7 @@
 <nav class="navbar container">
     <a  style="text-decoration:none" href="<?php echo e(route('home')); ?>">
         <div  class="logo">
-            Your Name
+            <img style="width: 130px; height: 100px" src="<?php echo e(asset('images/logoOrg.png')); ?>" alt="Logo">
         </div>
     </a>
     <div class="navbar-right">

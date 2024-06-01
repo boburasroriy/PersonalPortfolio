@@ -2,7 +2,7 @@
 <nav class="navbar container">
     <a  style="text-decoration:none" href="{{route('home')}}">
         <div  class="logo">
-            Your Name
+            <img style="width: 130px; height: 100px" src="{{asset('images/logoOrg.png')}}" alt="Logo">
         </div>
     </a>
     <div class="navbar-right">

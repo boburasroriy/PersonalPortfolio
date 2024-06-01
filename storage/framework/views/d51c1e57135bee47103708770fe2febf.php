@@ -6,10 +6,9 @@
     <title><?php echo e($title ?? 'The blog'); ?> </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-</head>
+    <link rel="icon"  href="<?php echo e(asset('images/logoOrg.png')); ?>"  type="image/x-icon">
 <body>
 <?php echo e($slot); ?>
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -41,6 +40,7 @@
         });
     });
 </script>
+
 </body>
 </html>
 <?php /**PATH C:\Users\Asus\Desktop\NoName\Personal\resources\views/components/layouts/main.blade.php ENDPATH**/ ?>
