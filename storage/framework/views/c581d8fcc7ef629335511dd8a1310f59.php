@@ -44,31 +44,27 @@
                 "My teachers… During my apprenticeship, whenever I tell them about my plans, they always question, how useful that works for others. I did writing for three years, but I had to give up all three years of effort, cause I found nothing useful more than just written stories influenced by emotions. But today, after two years of not taking a pen to a hand, finally I am able to turn my ability and effort into something really useful to others. From now on, I will post useful and highly efficient tactics, and experiences that can find its proof in your life. They are deep thoughts, so read them with your deep kind heart.
                 Thank you…,"</p>
             <div style="display: flex; justify-content: center">
-                <a href="https://www.linkedin.com/in/janedoe" style="margin-right: 15px; color: #007bff;" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://t.me/yourtelegramusername" style="color: #007bff;" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-            </div>
+                <a href="https://www.linkedin.com/in/marjona-urinboeva-0bb67326b/" style="margin-right: 15px; color: #007bff;" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+
+                <a href="mailto:Marjona.bahromovna@gmail.com" style="color: #007bff;" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a>
+`            </div>
             <div class="education" >
                 <h2 style="display: flex; margin-top: 100px; margin-bottom: -10px; justify-content: center">Education</h2>
-                <p style="font-size: 16px; align-items: center; text-align: center;  display:flex; justify-content: center">
-                    Westminster International University in Tashkent (WIUT)
-                    <br>
-                    Do you wanna know more about WIUT, and my study. Okay, let’s go:
-                </p>
-                <div class="lists" style="display: flex; justify-content: center; gap: 100px; text-align: start; font-size: 16px">
-                    <ul>
-                        <li>Finance: Yeah</li>
-                        <li>Investment: Yeah</li>
-                        <li>Uniform: Nope</li>
-                        <li>Flexible schedule: Yeah</li>
-                        <li>Factual learning: Nope</li>
-                    </ul>
-                    <ul>
-                        <li>Strict attendance: Nope</li>
-                        <li>Global Education: Yeah</li>
-                        <li>Bloomberg PC Lab: Yeah</li>
-                        <li>Cozy library: Yeah</li>
-                        <li>Free GYM: Yeah</li>
-                    </ul>
+                <div style="display:flex; justify-content: center; gap: 50px; margin-top: 50px">
+                    <img style="width: 400px; height: 250px; border-radius: 20px;" src='<?php echo e(asset('images/wiut.jpg')); ?>'>
+                    <div style="width: 400px">
+                        <p>
+                            Westminster International University in Tashkent (WIUT)
+                            Do you wanna know more about WIUT, and my study. Okay, let’s go:
+                        </p>
+                        <ul>
+                            <li>Finance: Yeah</li>
+                            <li>Investment: Yeah</li>
+                            <li>Uniform: Nope</li>
+                            <li>Flexible schedule: Yeah</li>
+                            <li>Factual learning: Nope</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
