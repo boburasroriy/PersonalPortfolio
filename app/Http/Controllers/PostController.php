@@ -23,7 +23,6 @@ class PostController extends Controller
         $category = Category::findOrFail($id);
         $posts = $category->posts()->orderBy('created_at', 'desc')->paginate(9);
         $categories = Category::all();
-        // Set $selectedCategoryId to the ID of the currently selected category
         $selectedCategoryId = $category->id;
         return view('Posts.index', compact('category', 'posts', 'categories', 'selectedCategoryId'));
     }
@@ -32,7 +31,7 @@ class PostController extends Controller
     {
         $categoryId = $request->input('category_id');
         $selectedCategoryId = null;
-        $category = null; // Initialize $category variable
+        $category = null;
 
         if ($categoryId) {
             $category = Category::findOrFail($categoryId);
@@ -41,7 +40,6 @@ class PostController extends Controller
         } else {
             $posts = Post::orderBy('created_at', 'desc')->paginate(9);
         }
-
         $categories = Category::all();
         return view('Posts.index', compact('category', 'posts', 'categories', 'selectedCategoryId'));
     }

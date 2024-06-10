@@ -34,12 +34,12 @@
         <link rel="stylesheet" href="<?php echo e(asset('css/authorPage.css')); ?>">
         <h1>AUTHOR</h1>
         <h2>Marjona Urinboyeva</h2>
-        <p>"Let's make this world beautiful at least one million people together."</p>
+        <p class="p">"Let's make this world beautiful at least one million people together."</p>
         <h3  class="aboutTitle">About me</h3>
         <div class="message">
-            <p class="honestMeUzb">“Assalomu alaykum, friends! Welcome to my world. Here, I am on a mission to spread positivity and personal growth through my writings. As an IELTS instructor, finance enthusiast, and psychology aficionado, I bring a unique perspective to the topics I explore.
+            <p class="honestMeUzb p">“Assalomu alaykum, friends! Welcome to my world. Here, I am on a mission to spread positivity and personal growth through my writings. As an IELTS instructor, finance enthusiast, and psychology aficionado, I bring a unique perspective to the topics I explore.
                 My goal is to inspire and empower readers, guiding them on their journeys of self-discovery and language mastery. Whether you're curious about human nature, seeking personal development such as lifelong learning, discipline, persistence, IELTS writing, or simply have a passion for literature, you'll find something to scratch your interest on this site. By the way, for the people who have interest in my life, I will also share some personal stories that brought me here today!”</p>
-            <p class="honestMe">“Honest Me!!! I am not the one who is a great or billionaire. I am not a filmmaker, nor a singer/dancer. BTW, I am not the boss of any corporation. Who I am then? Ready to explore: the favorite daughter of a supportive family, a believed leader of some/many, quite religious, highly persuasive, and a boss of her own life. Explorist of the experiences of others with strong observation skills. The preferred type of public behavior is introvert. Loves exploring different businesses, but is NOT INVOLVED in everyone’s business.
+            <p class="honestMe p">“Honest Me!!! I am not the one who is a great or billionaire. I am not a filmmaker, nor a singer/dancer. BTW, I am not the boss of any corporation. Who I am then? Ready to explore: the favorite daughter of a supportive family, a believed leader of some/many, quite religious, highly persuasive, and a boss of her own life. Explorist of the experiences of others with strong observation skills. The preferred type of public behavior is introvert. Loves exploring different businesses, but is NOT INVOLVED in everyone’s business.
                 Now great news…!!! I have something, mystery that can make you curious. Do you wanna know the secrets and mysteries of life that made people successful? We will explore it together! Taadamm! So boring…, right? Yeah! Quite dumped! But deep down, as you follow my posts, you will find many written pages that assist you in bombarding your self-consciousness and the nature of others. I hope you will interpret those findings into your own life and make them useful."
                 "My teachers… During my apprenticeship, whenever I tell them about my plans, they always question, how useful that works for others. I did writing for three years, but I had to give up all three years of effort, cause I found nothing useful more than just written stories influenced by emotions. But today, after two years of not taking a pen to a hand, finally I am able to turn my ability and effort into something really useful to others. From now on, I will post useful and highly efficient tactics, and experiences that can find its proof in your life. They are deep thoughts, so read them with your deep kind heart.
                 Thank you…,"</p>
@@ -47,32 +47,38 @@
                 <a href="https://www.linkedin.com/in/janedoe" style="margin-right: 15px; color: #007bff;" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://t.me/yourtelegramusername" style="color: #007bff;" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
             </div>
+            <div class="education" >
+                <h2 style="display: flex; margin-top: 100px; margin-bottom: -10px; justify-content: center">Education</h2>
+                <p style="font-size: 16px; align-items: center; text-align: center;  display:flex; justify-content: center">
+                    Westminster International University in Tashkent (WIUT)
+                    <br>
+                    Do you wanna know more about WIUT, and my study. Okay, let’s go:
+                </p>
+                <div class="lists" style="display: flex; justify-content: center; gap: 100px; text-align: start; font-size: 16px">
+                    <ul>
+                        <li>Finance: Yeah</li>
+                        <li>Investment: Yeah</li>
+                        <li>Uniform: Nope</li>
+                        <li>Flexible schedule: Yeah</li>
+                        <li>Factual learning: Nope</li>
+                    </ul>
+                    <ul>
+                        <li>Strict attendance: Nope</li>
+                        <li>Global Education: Yeah</li>
+                        <li>Bloomberg PC Lab: Yeah</li>
+                        <li>Cozy library: Yeah</li>
+                        <li>Free GYM: Yeah</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+
 
         <div class="credentialsSection">
             <div class="quote">
                 <img src="<?php echo e(asset('images/aboutPage/img_10.png')); ?>" alt="quote">
                 <h4>Status quo: “Be water, my friend!”-Bruce Lee</h4>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="activities" style="margin-top: 100px">
                 <div>
                     <img src="<?php echo e(asset('images/aboutPage/img_6.png')); ?>" alt="act">
@@ -80,11 +86,6 @@
                     <img src="<?php echo e(asset('images/aboutPage/img_8.png')); ?>" alt="act">
                     <img src="<?php echo e(asset('images/aboutPage/img_9.png')); ?>" alt="act">
                 </div>
-                <div>
-                    <p>Activities: Gymnastic, dancing, ping-pong, meditation</p>
-                    <p>Preferred activities: reading, writing, sleeping.</p>
-                </div>
-
             </div>
         </div>
     </div>

@@ -17,14 +17,14 @@
 @media (max-width: 576px) {
     .post {
         flex: 1 1 100%; /* Change to one column */
-        /*margin-right: 50px;*/
+        margin-right: 50px;
         overflow-x: hidden;
 
     }
-.routeCreatePost{
-    margin-right: 50px;
-    margin-top: -20px;
-}
+    .routeCreatePost{
+        margin-right: 50px;
+        margin-top: -20px;
+    }
     .routeCreatePost, .routeDeletePost, .routeEditPost {
         /*padding: 5px 10px; !* Adjust button padding *!*/
         font-size: 14px; /* Adjust font size */
@@ -51,7 +51,7 @@
     padding: 10px; /* Maintain compactness */
     flex: 1 1 30%; /* Three columns */
     min-width: 250px; /* Minimum width for posts */
-    max-width: 550px;
+    max-width: 600px;
     opacity: 0; /* Start invisible */
     animation: fadeIn 1s ease-in-out forwards; /* Apply the fade-in animation */
 }
@@ -250,4 +250,3 @@ body.dark-mode .post-title {
     color: black;
 
 }
-

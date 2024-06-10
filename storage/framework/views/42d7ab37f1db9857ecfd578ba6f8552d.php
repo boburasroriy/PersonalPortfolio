@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="<?php echo e(asset('css/nav.css')); ?>">
 <nav class="navbar container">
     <a  style="text-decoration:none" href="<?php echo e(route('home')); ?>">
-        <div  class="logo">
-            <img style="width: 130px; height: 100px" src="<?php echo e(asset('images/logoOrg.png')); ?>" alt="Logo">
+        <div  class="logo" style="display: flex; align-items: center; font-size: 20px">
+            <img style="width: 110px; height: 85px; margin-right: 10px" src="<?php echo e(asset('images/logoOrg.png')); ?>" alt="Logo">
+            <p>MASTERY</p>
         </div>
     </a>
     <div class="navbar-right">
