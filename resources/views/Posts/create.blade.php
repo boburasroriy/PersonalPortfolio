@@ -25,6 +25,8 @@
                 <label for="text">Text:</label>
                 <div contenteditable="true" class="contenteditable-div" id="Article"></div>
                 <textarea id="hiddenTextarea" name="text" class="form-control" style="display:none;"></textarea>
+
+
             </div>
             <div>
                 <button type="button" onclick="highlightSelectedText()">Highlight Selected Text</button>
